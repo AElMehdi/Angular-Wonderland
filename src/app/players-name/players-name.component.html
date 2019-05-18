@@ -1,1 +1,6 @@
-<h1>{{greeting}}</h1>
+<ul>
+  <li *ngFor="let player of players">
+    <p>Player name:  {{player.name}}</p>
+    <p>Team: {{player.team}}</p>
+  </li>
+</ul>

@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {Player} from './shared/player.model';
 
 @Component({
   selector: 'app-players-name',
@@ -7,7 +8,30 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PlayersNameComponent implements OnInit {
 
-  greeting = 'Hello World';
+  players: Player[] = [{
+    id: 1,
+    name: 'El Mehdi',
+    team: 'Majd'
+  }, {
+    id: 1,
+    name: 'Marouane',
+    team: 'Majd'
+  },
+    {
+      id: 1,
+      name: 'Ali',
+      team: 'Majd'
+    },
+    {
+      id: 1,
+      name: 'Aliou',
+      team: 'Majd'
+    },
+    {
+      id: 1,
+      name: 'Ibrahim',
+      team: 'Majd'
+    }];
 
   constructor() {
   }
