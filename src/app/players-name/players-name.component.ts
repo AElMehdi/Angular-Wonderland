@@ -19,17 +19,17 @@ export class PlayersNameComponent implements OnInit {
   },
     {
       id: 1,
-      name: 'Ali',
+      name: 'Yassine',
       team: 'Majd'
     },
     {
       id: 1,
-      name: 'Aliou',
+      name: 'Omar',
       team: 'Majd'
     },
     {
       id: 1,
-      name: 'Ibrahim',
+      name: 'Chaouki',
       team: 'Majd'
     }];
 
