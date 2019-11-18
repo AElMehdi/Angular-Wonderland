@@ -9,14 +9,14 @@ import {PlayerService} from './service/player.service';
 })
 export class PlayersNameComponent implements OnInit {
 
+  private players: Player[]
+
   constructor(private playerService: PlayerService) {
   }
 
   ngOnInit() {
-    this.getPlayers();
-  }
-
-  private getPlayers(): Player[] {
-    return this.playerService.getPlayers();
+    this.playerService.getPlayers().subscribe(res => {
+      this.players = res;
+    });
   }
 }
