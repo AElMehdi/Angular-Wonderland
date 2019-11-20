@@ -1,12 +1,15 @@
-import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import {NgModule} from '@angular/core';
+import {RouterModule, Routes} from '@angular/router';
 import {PlayersNameComponent} from './players-name/players-name.component';
+import {TextHighlightingComponent} from './text-highlighting/text-highlighting/text-highlighting.component';
 
 const routes: Routes = [
-  { path: 'players', component: PlayersNameComponent }];
+  {path: '', component: TextHighlightingComponent},
+  {path: 'players', component: PlayersNameComponent}];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {
+}
