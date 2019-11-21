@@ -5,9 +5,28 @@
   border: 1px solid #555;
 }
 
-mat-drawer-content {
+mat-sidenav-content {
   padding: 12px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+
+}
+
+.text-container {
+  display: flex;
+
+}
+
+.mat-sidenav-content {
+  width: 100%;
+  border: 1px solid rgba(0,0,0,.03);
+  box-shadow: 0 60px 15px rgba(0,0,0,.24), 0 0 2px rgba(0,0,0,.12);
+
+}
+
+.mat-sidenav{
+  width: 20%;
+  border: 1px solid rgba(0,0,0,.03);
+  box-shadow: 0 2px 15px rgba(0,0,0,.24), 0 0 2px rgba(0,0,0,.12);
 }

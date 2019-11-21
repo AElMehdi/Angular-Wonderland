@@ -1,6 +1,5 @@
-<mat-drawer-container class="example-container" [hasBackdrop]="hasBackdrop.value">
-  <mat-drawer #drawer [mode]="mode.value">I'm a drawer</mat-drawer>
-  <mat-drawer-content>
+<mat-sidenav-container class="text-container" [hasBackdrop]="true">
+  <mat-sidenav-content class="content">
     <mat-form-field>
       <mat-label>Sidenav mode</mat-label>
       <mat-select #mode value="side">
@@ -18,5 +17,8 @@
       </mat-select>
     </mat-form-field>
     <button mat-raised-button (click)="drawer.toggle()">Toggle drawer</button>
-  </mat-drawer-content>
-</mat-drawer-container>
+
+    <p> Some text content</p>
+  </mat-sidenav-content>
+  <mat-sidenav position="end" class="side-nav" #drawer [mode]="mode.value">I'm a side nav and I'll be containing actions</mat-sidenav>
+</mat-sidenav-container>
