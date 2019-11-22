@@ -16,9 +16,9 @@
         <mat-option [value]="false">False</mat-option>
       </mat-select>
     </mat-form-field>
-    <button mat-raised-button (click)="drawer.toggle()">Toggle drawer</button>
+    <button mat-raised-button (click)="sideNav.toggle()">Toggle drawer</button>
 
     <p (mouseup)="handleMouseUp()"> Some text content</p>
   </mat-sidenav-content>
-  <mat-sidenav position="end" class="side-nav" #drawer [mode]="mode.value">I'm a side nav and I'll be containing actions</mat-sidenav>
+  <mat-sidenav position="end" class="side-nav" #sideNav [mode]="mode.value">I'm a side nav and I'll be containing actions</mat-sidenav>
 </mat-sidenav-container>

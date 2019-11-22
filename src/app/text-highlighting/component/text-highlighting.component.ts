@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 
 @Component({
   selector: 'app-text-highlighting',
@@ -7,7 +7,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TextHighlightingComponent implements OnInit {
 
-  constructor() { }
+  @ViewChild('sideNav') sideNav;
+
+  constructor() {
+  }
 
   ngOnInit() {
   }
@@ -15,6 +18,7 @@ export class TextHighlightingComponent implements OnInit {
   handleMouseUp() {
     if (window.getSelection().toString()) {
       console.log('Show a popup');
+      this.sideNav.toggle();
     }
   }
 }
