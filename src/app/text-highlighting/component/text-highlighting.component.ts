@@ -12,4 +12,9 @@ export class TextHighlightingComponent implements OnInit {
   ngOnInit() {
   }
 
+  handleMouseUp() {
+    if (window.getSelection().toString()) {
+      console.log('Show a popup');
+    }
+  }
 }
