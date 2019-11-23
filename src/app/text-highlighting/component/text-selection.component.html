@@ -19,10 +19,15 @@
     <button mat-raised-button (click)="sideNav.toggle()">Toggle drawer</button>
 
     <div class="action-container" *ngIf="hostRectangle">
-
       <button (click)="share()">share</button>
       <button (click)="comment()">comment</button>
       <button (click)="highlight()">highlight</button>
+    </div>
+
+    <div>
+      <p *ngFor="let i of [ 1, 2, 3 ]">
+        This is some text before the active selection zone.
+      </p>
     </div>
 
     <div class="content-container" (appTextSelect)="showActionsContainer($event)">
@@ -30,6 +35,12 @@
         Some text content, and some more and more and
         more and more and more... A lot of
         text</p>
+    </div>
+
+    <div>
+      <p *ngFor="let i of [ 1, 2, 3 ]">
+        This is some text before the active selection zone.
+      </p>
     </div>
   </mat-sidenav-content>
   <mat-sidenav position="end" class="side-nav" #sideNav [mode]="mode.value">I'm a side nav and I'll be containing

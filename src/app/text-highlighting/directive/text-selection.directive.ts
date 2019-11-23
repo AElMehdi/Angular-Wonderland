@@ -36,17 +36,18 @@ export class TextSelectionDirective implements OnInit, OnDestroy {
 
 
   public ngOnDestroy(): void {
-    this.elementRef.nativeElement.removeEventListener('mousedown', this.handleMousedown, false);
-    document.removeEventListener('mouseup', this.handleMouseup, false);
-    document.removeEventListener('selectionchange', this.handleSelectionchange, false);
+    this.elementRef.nativeElement.removeEventListener('mousedown', this.handleMouseDown.bind(this), false);
+    document.removeEventListener('mouseup', this.handleMouseUp.bind(this), false);
+    document.removeEventListener('selectionchange', this.handleSelectionChange.bind(this), false);
 
   }
 
 
   public ngOnInit(): void {
+    console.log('directive On init');
     this.zone.runOutsideAngular(
       () => {
-        this.elementRef.nativeElement.addEventListener('mousedown', this.handleMousedown, false);
+        this.elementRef.nativeElement.addEventListener('mousedown', this.handleMouseDown.bind(this), false);
       }
     );
   }
@@ -63,18 +64,20 @@ export class TextSelectionDirective implements OnInit, OnDestroy {
   }
 
 
-  private handleMousedown = (): void => {
-    document.addEventListener('mouseup', this.handleMouseup, false);
+  private handleMouseDown(): void {
+    console.log('directive mouse down');
+    document.addEventListener('mouseup', this.handleMouseUp.bind(this), false);
   }
 
 
-  private handleMouseup = (): void => {
-    document.removeEventListener('mouseup', this.handleMouseup, false);
+  private handleMouseUp(): void {
+    console.log('directive mouse up');
+    document.removeEventListener('mouseup', this.handleMouseUp, false);
     this.processSelection();
   }
 
 
-  private handleSelectionchange = (): void => {
+  private handleSelectionChange(): void {
     if (this.hasSelection) {
       this.processSelection();
     }
@@ -90,7 +93,6 @@ export class TextSelectionDirective implements OnInit, OnDestroy {
     }
 
     return (hostElement.contains(selectionContainer));
-
   }
 
 
@@ -113,7 +115,6 @@ export class TextSelectionDirective implements OnInit, OnDestroy {
 
     if (!selection.rangeCount || !selection.toString()) {
       return;
-
     }
 
     const range = selection.getRangeAt(0);
@@ -143,7 +144,6 @@ export class TextSelectionDirective implements OnInit, OnDestroy {
               height: localRectangle.height
             }
           });
-
         }
       );
     }
@@ -154,12 +154,10 @@ export class TextSelectionDirective implements OnInit, OnDestroy {
     const host = this.elementRef.nativeElement;
     const hostRectangle = host.getBoundingClientRect();
 
-
     let localLeft = (viewportRectangle.left - hostRectangle.left);
     let localTop = (viewportRectangle.top - hostRectangle.top);
 
     let node = rangeContainer;
-
 
     do {
       localLeft += (node as Element).scrollLeft;
@@ -175,5 +173,4 @@ export class TextSelectionDirective implements OnInit, OnDestroy {
       height: viewportRectangle.height
     });
   }
-
 }
