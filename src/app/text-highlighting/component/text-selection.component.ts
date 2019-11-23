@@ -35,6 +35,7 @@ export class TextSelectionComponent implements OnInit {
   }
 
   highlight() {
+    console.log('toggle side nav');
     this.sideNav.toggle();
   }
 
