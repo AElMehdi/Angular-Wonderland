@@ -18,7 +18,14 @@
     </mat-form-field>
     <button mat-raised-button (click)="sideNav.toggle()">Toggle drawer</button>
 
-    <div class="content-container" (textSelect)="showActionContainer($event)">
+    <div class="action-container" *ngIf="hostRectangle">
+
+      <button (click)="share()">share</button>
+      <button (click)="comment()">comment</button>
+      <button (click)="highlight()">highlight</button>
+    </div>
+
+    <div class="content-container" (appTextSelect)="showActionsContainer($event)">
       <p *ngFor="let i of [ 1, 2, 3, 4, 5, 6 ]">
         Some text content, and some more and more and
         more and more and more... A lot of

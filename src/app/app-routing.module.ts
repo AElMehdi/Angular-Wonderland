@@ -1,10 +1,10 @@
-import {NgModule} from '@angular/core';
-import {RouterModule, Routes} from '@angular/router';
-import {PlayersNameComponent} from './players-name/players-name.component';
-import {TextHighlightingComponent} from './text-highlighting/component/text-highlighting.component';
+import { NgModule } from '@angular/core';
+import { RouterModule, Routes } from '@angular/router';
+import { PlayersNameComponent } from './players-name/players-name.component';
+import { TextSelectionComponent } from './text-highlighting/component/text-selection.component';
 
 const routes: Routes = [
-  {path: '', component: TextHighlightingComponent},
+  {path: '', component: TextSelectionComponent},
   {path: 'players', component: PlayersNameComponent}];
 
 @NgModule({

@@ -4,7 +4,7 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { PlayersNameComponent } from './players-name/players-name.component';
-import { TextHighlightingComponent } from './text-highlighting/component/text-highlighting.component';
+import { TextSelectionComponent } from './text-highlighting/component/text-selection.component';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
@@ -15,7 +15,7 @@ import { TextSelectionDirective } from './text-highlighting/directive/text-selec
   declarations: [
     AppComponent,
     PlayersNameComponent,
-    TextHighlightingComponent,
+    TextSelectionComponent,
     TextSelectionDirective
   ],
   imports: [

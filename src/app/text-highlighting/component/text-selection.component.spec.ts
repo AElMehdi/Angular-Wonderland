@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { TextHighlightingComponent } from './text-highlighting.component';
+import { TextSelectionComponent } from './text-selection.component';
 
 describe('TextHighlightingComponent', () => {
-  let component: TextHighlightingComponent;
-  let fixture: ComponentFixture<TextHighlightingComponent>;
+  let component: TextSelectionComponent;
+  let fixture: ComponentFixture<TextSelectionComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ TextHighlightingComponent ]
+      declarations: [ TextSelectionComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(TextHighlightingComponent);
+    fixture = TestBed.createComponent(TextSelectionComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
