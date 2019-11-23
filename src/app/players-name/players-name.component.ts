@@ -9,7 +9,7 @@ import {PlayerService} from './service/player.service';
 })
 export class PlayersNameComponent implements OnInit {
 
-  private players: Player[]
+  private players: Player[];
 
   constructor(private playerService: PlayerService) {
   }

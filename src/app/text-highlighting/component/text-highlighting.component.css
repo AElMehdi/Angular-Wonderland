@@ -30,3 +30,15 @@ mat-sidenav-content {
   border: 1px solid rgba(0,0,0,.03);
   box-shadow: 0 2px 15px rgba(0,0,0,.24), 0 0 2px rgba(0,0,0,.12);
 }
+
+.action-container {
+  margin-top: 10px;
+  background: cornflowerblue;
+  border: 1px solid rgba(0,0,0,.03);
+}
+
+.content-container {
+  margin: 20px;
+  padding: 15px;
+  border: 2px solid black;
+}

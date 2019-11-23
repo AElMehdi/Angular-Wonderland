@@ -1,28 +1,63 @@
-import { Directive, ElementRef, HostListener, Input } from '@angular/core';
+import { Directive, ElementRef, EventEmitter, NgZone, OnInit, Output } from '@angular/core';
+
+export interface TextSelectEvent {
+  text: string;
+}
 
 @Directive({
-  selector: '[textSelection]'
+  selector: '[textSelect]',
 })
-export class TextSelectionDirective {
+export class TextSelectionDirective implements OnInit {
 
-  constructor(private element: ElementRef) { }
+  @Output('textSelect')
+  public textSelectEvent: EventEmitter<TextSelectEvent>;
 
-  @Input() defaultColor: string;
+  private elementRef: ElementRef;
+  private zone: NgZone;
 
-  @Input('appHighlight') highlightColor: string;
 
-  @HostListener('mouseenter') onMouseEnter() {
-    console.log('Mouse enter')
-    this.highlight(this.highlightColor || this.defaultColor || 'red');
+  constructor(elementRef: ElementRef, zone: NgZone) {
+    this.textSelectEvent = new EventEmitter<TextSelectEvent>();
+    this.elementRef = elementRef;
+    this.zone = zone;
+
   }
 
-  @HostListener('mouseleave') onMouseLeave() {
-    console.log('Mouse leave')
-    this.highlight(null);
+
+  public ngOnInit(): void {
+    this.zone.runOutsideAngular(
+      () => {
+        this.attachMouseDowEventToElement();
+      });
   }
 
-  private highlight(color: string) {
-    console.log('reset the color')
-    this.element.nativeElement.style.backgroundColor = color;
+
+  private attachMouseDowEventToElement() {
+    this.elementRef.nativeElement.addEventListener('mousedown', this.handleMouseDown.bind(this), false);
+  }
+
+  private handleMouseDown() {
+    console.log('Mouse down');
+    this.addMouseUpEventToDocument();
+  }
+
+
+  private addMouseUpEventToDocument() {
+    document.addEventListener('mouseup', this.handleMouseUp.bind(this), false);
+  }
+
+  private handleMouseUp() {
+    console.log('Mouse up');
+    this.removeMouseUpEventFromDocument();
+    this.processSelection();
+
+  }
+
+  private removeMouseUpEventFromDocument() {
+    document.removeEventListener('mouseup', this.handleMouseUp, false);
+  }
+
+  private processSelection() {
+    console.log('Process text selection');
   }
 }
