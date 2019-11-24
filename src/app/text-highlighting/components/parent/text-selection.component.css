@@ -1,6 +1,27 @@
 mat-sidenav-container {
   display: flex;
   justify-content: center;
+  height: 100%;
+}
+
+mat-sidenav-content {
+  width: 70%;
+}
+
+mat-sidenav {
+  width: 30%;
+}
+
+.sideNav-header {
+  margin-left: 10px;
+  padding: 15px;
+  background: darkolivegreen;
+  color: white;
+}
+
+mat-sidenav form {
+  display: flex;
+  justify-content: center;
 }
 
 .action-container {
