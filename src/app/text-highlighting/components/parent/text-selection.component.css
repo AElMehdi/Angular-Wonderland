@@ -19,6 +19,15 @@ mat-sidenav {
   color: white;
 }
 
+.sideNav-description {
+  margin-left: 10px;
+}
+
+.selected-text {
+  font-family: Arab;
+  font-weight: normal;
+}
+
 mat-sidenav form {
   display: flex;
   justify-content: center;
@@ -44,5 +53,3 @@ mat-sidenav form {
 /*  margin-left: -8px;*/
 /*  margin-bottom: -8px;*/
 /*}*/
-
-
