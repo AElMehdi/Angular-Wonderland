@@ -17,7 +17,7 @@ interface SelectionContainer {
 export class TextSelectionComponent implements OnInit {
 
   @ViewChild('sideNav') sideNav;
-  hostRectangle: SelectionContainer;
+  private hostRectangle: SelectionContainer;
   private selectedText: string;
 
   constructor() {
@@ -26,15 +26,7 @@ export class TextSelectionComponent implements OnInit {
   ngOnInit() {
   }
 
-  share() {
-    console.log('I share \'cause I care');
-  }
-
-  comment() {
-    console.log('Give your opinion kindly');
-  }
-
-  highlight() {
+  toggleSideNav() {
     console.log('toggle side nav');
     this.sideNav.toggle();
   }
@@ -46,6 +38,8 @@ export class TextSelectionComponent implements OnInit {
     // console.log('Viewport Rectangle:', event.viewportRectangle);
     // console.log('Host Rectangle:', event.hostRectangle);
     // console.groupEnd();
+
+    console.log('I am working too?', event.hostRectangle);
 
     if (event.hostRectangle) {
       this.hostRectangle = event.hostRectangle;

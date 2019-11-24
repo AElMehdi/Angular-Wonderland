@@ -1,49 +1,73 @@
-<mat-sidenav-container class="text-container" [hasBackdrop]="true">
-  <mat-sidenav-content class="content">
-    <mat-form-field>
-      <mat-label>Sidenav mode</mat-label>
-      <mat-select #mode value="side">
-        <mat-option value="side">Side</mat-option>
-        <mat-option value="over">Over</mat-option>
-        <mat-option value="push">Push</mat-option>
-      </mat-select>
-    </mat-form-field>
-    <mat-form-field>
-      <mat-label>Has backdrop</mat-label>
-      <mat-select #hasBackdrop>
-        <mat-option>Unset</mat-option>
-        <mat-option [value]="true">True</mat-option>
-        <mat-option [value]="false">False</mat-option>
-      </mat-select>
-    </mat-form-field>
-    <button mat-raised-button (click)="sideNav.toggle()">Toggle drawer</button>
+<mat-sidenav-container hasBackdrop="true">
+  <mat-sidenav-content>
+    <!--    <img src="src/assets/img/tagine.jpg" alt="Beef tagine">-->
+    <h1 class="headline">Easy Moroccan Vegetable Tagine Recipe</h1>
+    <section class="body-1">A simple vegetable tagine recipe packed with warm Moroccan flavors.
+      One of my new favorite one-pot meals. Vegan and Gluten free! Be sure to watch the video for how to make this
+      vegetable tagine below!
+    </section>
 
-    <div class="action-container" *ngIf="hostRectangle">
-      <button  mat-button (click)="share()">share</button>
-      <button  mat-button (click)="comment()">comment</button>
-      <button  mat-button (click)="highlight()">highlight</button>
+    <section>Think of Moroccan tagine as a succulent, slowly simmered stew. Similar to this Moroccan Lamb Stew,
+      the balance of sweet and savory flavors, coupled with the intensity of spices set this vegetable tagine apart
+      from your average stew.
+    </section>
+
+    <div (appTextSelect)="showActionsContainer($event)">
+
+      <div class="action-container" *ngIf="hostRectangle"
+           [style.left.px]="hostRectangle.left"
+           [style.top.px]="hostRectangle.top"
+           [style.width.px]="hostRectangle.width"
+           [style.height.px]="0">
+        <button class="action-container" mat-raised-button
+                (mousedown)="$event.preventDefault()"
+                (mouseup)="$event.stopPropagation(); toggleSideNav()">
+          Toggle Action Menu
+        </button>
+      </div>
+      <div>
+        <h3>DESCRIPTION</h3>
+        <p>All-star vegetable tagine recipe! Simple vegetable stew packed with the perfect balance of Moroccan flavors. Vegan and Gluten free.</p>
+      </div>
+      <div>
+        <h3>Ingredients:</h3>
+        <ul>
+          <li>1/2 cup Private Reserve extra virgin olive oil, more for later</li>
+          <li>4 medium yellow onions, peeled and chopped</li>
+          <li>16–20 garlic cloves, peeled and chopped</li>
+          <li>4 large carrots, peeled and chopped</li>
+          <li>4 large russet potatoes, peeled and cubed</li>
+          <li>2 large sweet potato, peeled and cubed</li>
+          <li>Salt</li>
+          <li>2 tbsp Harissa spice blend</li>
+          <li>2 tsp ground coriander</li>
+          <li>2 tsp ground cinnamon</li>
+          <li>1 tsp ground turmeric</li>
+          <li>4 cups canned whole peeled tomatoes</li>
+          <li>1 cup heaping chopped dried apricot</li>
+          <li>2 quart low-sodium vegetable broth (or broth of your choice)</li>
+          <li>4 cups cooked chickpeas</li>
+          <li>2 lemon, juice of</li>
+          <li>Handful fresh parsley leaves</li>
+        </ul>
+      </div>
+      <div>
+        <h3>Instructions:</h3>
+        <ol>
+          <li>In a large heavy pot or Dutch Oven, heat olive oil over medium heat until just shimmering. Add onions and increase heat to medium-high. Saute for 5 minutes, tossing regularly.</li>
+          <li>Add garlic and all the chopped veggies. Season with salt and spices. Toss to combine.</li>
+          <li>Cook for 5 to 7 minutes on medium-high heat, mixing regularly with a wooden spoon.</li>
+          <li>Add tomatoes, apricot and broth. Season again with just a small dash of salt.</li>
+          <li>Keep the heat on medium-high, and cook for 10 minutes. Then reduce heat, cover and simmer for another 20 to 25 minutes or until veggies are tender.</li>
+          <li>Stir in chickpeas and cook another 5 minutes on low heat.</li>
+          <li>Stir in lemon juice and fresh parsley. Taste and adjust seasoning, adding more salt or harissa spice blend to your liking.</li>
+          <li>Transfer to serving bowls and top each with a generous drizzle of Private Reserve extra virgin olive oil. Serve hot with your favorite bread, couscous, or rice. Enjoy!</li>
+        </ol>
+      </div>
     </div>
 
-    <div>
-      <p *ngFor="let i of [ 1, 2, 3 ]">
-        This is some text before the active selection zone.
-      </p>
-    </div>
-
-    <div class="content-container" (appTextSelect)="showActionsContainer($event)">
-      <p *ngFor="let i of [ 1, 2, 3, 4, 5, 6 ]">
-        Some text content, and some more and more and
-        more and more and more... A lot of
-        text</p>
-    </div>
-
-    <div>
-      <p *ngFor="let i of [ 1, 2, 3 ]">
-        This is some text before the active selection zone.
-      </p>
-    </div>
   </mat-sidenav-content>
-  <mat-sidenav position="end" class="side-nav" #sideNav [mode]="mode.value">I'm a side nav and I'll be containing
+  <mat-sidenav position="end" mode="over" #sideNav>I'm a side nav and I'll be containing
     actions
   </mat-sidenav>
 </mat-sidenav-container>
