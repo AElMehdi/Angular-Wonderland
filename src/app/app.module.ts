@@ -4,20 +4,25 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { PlayersNameComponent } from './players-name/players-name.component';
-import { TextSelectionComponent } from './text-highlighting/component/text-selection.component';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TextSelectionDirective } from './text-highlighting/directive/text-selection.directive';
 import { MatButtonModule } from '@angular/material/button';
+import { TextSelectionComponent } from './text-highlighting/components/parent/text-selection.component';
+import { SidenavComponent } from './text-highlighting/components/sidenav/sidenav.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { MatInputModule } from '@angular/material/input';
 
 @NgModule({
   declarations: [
     AppComponent,
     PlayersNameComponent,
     TextSelectionComponent,
-    TextSelectionDirective
+    TextSelectionDirective,
+    SidenavComponent
   ],
   imports: [
     BrowserModule,
@@ -26,7 +31,10 @@ import { MatButtonModule } from '@angular/material/button';
     MatFormFieldModule,
     MatSelectModule,
     BrowserAnimationsModule,
-    MatButtonModule
+    MatButtonModule,
+    ReactiveFormsModule,
+    MatAutocompleteModule,
+    MatInputModule
   ],
   providers: [],
   bootstrap: [AppComponent]

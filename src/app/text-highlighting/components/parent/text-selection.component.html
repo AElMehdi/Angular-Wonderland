@@ -27,7 +27,8 @@
       </div>
       <div>
         <h3>DESCRIPTION</h3>
-        <p>All-star vegetable tagine recipe! Simple vegetable stew packed with the perfect balance of Moroccan flavors. Vegan and Gluten free.</p>
+        <p>All-star vegetable tagine recipe! Simple vegetable stew packed with the perfect balance of Moroccan flavors.
+          Vegan and Gluten free.</p>
       </div>
       <div>
         <h3>Ingredients:</h3>
@@ -54,20 +55,39 @@
       <div>
         <h3>Instructions:</h3>
         <ol>
-          <li>In a large heavy pot or Dutch Oven, heat olive oil over medium heat until just shimmering. Add onions and increase heat to medium-high. Saute for 5 minutes, tossing regularly.</li>
+          <li>In a large heavy pot or Dutch Oven, heat olive oil over medium heat until just shimmering. Add onions and
+            increase heat to medium-high. Saute for 5 minutes, tossing regularly.
+          </li>
           <li>Add garlic and all the chopped veggies. Season with salt and spices. Toss to combine.</li>
           <li>Cook for 5 to 7 minutes on medium-high heat, mixing regularly with a wooden spoon.</li>
           <li>Add tomatoes, apricot and broth. Season again with just a small dash of salt.</li>
-          <li>Keep the heat on medium-high, and cook for 10 minutes. Then reduce heat, cover and simmer for another 20 to 25 minutes or until veggies are tender.</li>
+          <li>Keep the heat on medium-high, and cook for 10 minutes. Then reduce heat, cover and simmer for another 20
+            to 25 minutes or until veggies are tender.
+          </li>
           <li>Stir in chickpeas and cook another 5 minutes on low heat.</li>
-          <li>Stir in lemon juice and fresh parsley. Taste and adjust seasoning, adding more salt or harissa spice blend to your liking.</li>
-          <li>Transfer to serving bowls and top each with a generous drizzle of Private Reserve extra virgin olive oil. Serve hot with your favorite bread, couscous, or rice. Enjoy!</li>
+          <li>Stir in lemon juice and fresh parsley. Taste and adjust seasoning, adding more salt or harissa spice blend
+            to your liking.
+          </li>
+          <li>Transfer to serving bowls and top each with a generous drizzle of Private Reserve extra virgin olive oil.
+            Serve hot with your favorite bread, couscous, or rice. Enjoy!
+          </li>
         </ol>
       </div>
     </div>
-
   </mat-sidenav-content>
-  <mat-sidenav position="end" mode="over" #sideNav>I'm a side nav and I'll be containing
-    actions
+  <mat-sidenav position="end" mode="over" #sideNav>
+    <form [formGroup]="ingredientForm">
+      <mat-form-field>
+        <input type="text" matInput placeholder="Ingredients" formControlName="ingredientGroup" required
+               [matAutocomplete]="autoGroup">
+        <mat-autocomplete #autoGroup="matAutocomplete">
+          <mat-optgroup *ngFor="let group of ingredientsGroupOptions | async" [label]="group.letter">
+            <mat-option *ngFor="let name of group.names" [value]="name">
+              {{name}}
+            </mat-option>
+          </mat-optgroup>
+        </mat-autocomplete>
+      </mat-form-field>
+    </form>
   </mat-sidenav>
 </mat-sidenav-container>
