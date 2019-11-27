@@ -35,6 +35,18 @@ export class TextSelectionDirective implements OnInit, OnDestroy {
   }
 
 
+  public ngOnInit(): void {
+    console.log('directive On init');
+    // Needs to be done outside the angular zone to avoid changing the state by events that aren't related to our use case
+    this.zone.runOutsideAngular(
+      () => {
+        // Add the mouse down event only on the element
+        this.elementRef.nativeElement.addEventListener('mousedown', this.handleMouseDown.bind(this), false);
+      }
+    );
+  }
+
+
   public ngOnDestroy(): void {
     this.elementRef.nativeElement.removeEventListener('mousedown', this.handleMouseDown.bind(this), false);
     document.removeEventListener('mouseup', this.handleMouseUp.bind(this), false);
@@ -42,30 +54,9 @@ export class TextSelectionDirective implements OnInit, OnDestroy {
 
   }
 
-
-  public ngOnInit(): void {
-    console.log('directive On init');
-    this.zone.runOutsideAngular(
-      () => {
-        this.elementRef.nativeElement.addEventListener('mousedown', this.handleMouseDown.bind(this), false);
-      }
-    );
-  }
-
-
-  private getRangeContainer(range: Range): Node {
-    let container = range.commonAncestorContainer;
-
-    while (container.nodeType !== Node.ELEMENT_NODE) {
-      container = container.parentNode;
-    }
-
-    return (container);
-  }
-
-
   private handleMouseDown(): void {
     console.log('directive mouse down');
+    // Add the mouse up event on the whole document
     document.addEventListener('mouseup', this.handleMouseUp.bind(this), false);
   }
 
@@ -73,7 +64,20 @@ export class TextSelectionDirective implements OnInit, OnDestroy {
   private handleMouseUp(): void {
     console.log('directive mouse up');
     document.removeEventListener('mouseup', this.handleMouseUp, false);
+    // React to the event
     this.processSelection();
+  }
+
+
+  private getRangeContainer(range: Range): Node {
+    let container = range.commonAncestorContainer;
+
+    // Check if the node is a div or text
+    while (container.nodeType !== Node.ELEMENT_NODE) {
+      container = container.parentNode;
+    }
+
+    return container;
   }
 
 
@@ -154,8 +158,15 @@ export class TextSelectionDirective implements OnInit, OnDestroy {
     const host = this.elementRef.nativeElement;
     const hostRectangle = host.getBoundingClientRect();
 
-    let localLeft = (viewportRectangle.left - hostRectangle.left);
-    let localTop = (viewportRectangle.top - hostRectangle.top);
+    console.group('ViewportToHost');
+    console.log('viewport', viewportRectangle);
+    console.log('range container', rangeContainer);
+    console.log('host element', host);
+    console.log('host Rectangle', hostRectangle);
+    console.groupEnd();
+
+    let localLeft = (viewportRectangle.left - hostRectangle.left) - 10;
+    let localTop = (viewportRectangle.top - hostRectangle.top) - 20;
 
     let node = rangeContainer;
 
