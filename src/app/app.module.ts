@@ -11,7 +11,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TextSelectionDirective } from './text-highlighting/directive/text-selection.directive';
 import { MatButtonModule } from '@angular/material/button';
 import { TextSelectionComponent } from './text-highlighting/components/parent/text-selection.component';
-import { SidenavComponent } from './text-highlighting/components/sidenav/sidenav.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatInputModule } from '@angular/material/input';
@@ -22,7 +21,6 @@ import { MatInputModule } from '@angular/material/input';
     PlayersNameComponent,
     TextSelectionComponent,
     TextSelectionDirective,
-    SidenavComponent
   ],
   imports: [
     BrowserModule,
