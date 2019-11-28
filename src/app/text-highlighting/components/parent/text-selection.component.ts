@@ -96,6 +96,7 @@ export class TextSelectionComponent implements OnInit {
   toggleSideNav() {
     console.log('toggle side nav');
     this.sideNav.toggle();
+    this.hostRectangle = null;
   }
 
   showActionsContainer(event: TextSelectEvent) {
