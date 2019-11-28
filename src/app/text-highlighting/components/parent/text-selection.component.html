@@ -76,7 +76,9 @@
     </div>
   </mat-sidenav-content>
   <mat-sidenav position="end" mode="over" #sideNav>
-    <h2 class="sideNav-header">Highlight your ingredients from the given form:</h2>
+    <div class="sideNav-header">
+      <h2>Highlight your ingredients from the given form:</h2>
+    </div>
     <h3 class="sideNav-description">Text to be highlighted: <span class="selected-text">{{selectedText}}</span></h3>
     <form [formGroup]="ingredientForm">
       <mat-form-field>
