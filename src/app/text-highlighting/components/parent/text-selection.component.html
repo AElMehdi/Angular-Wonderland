@@ -1,3 +1,6 @@
+<header>
+  <h1>My Logo</h1>
+</header>
 <mat-sidenav-container hasBackdrop="true">
   <mat-sidenav-content>
     <!--    <img src="src/assets/img/tagine.jpg" alt="Beef tagine">-->
@@ -79,7 +82,7 @@
     <div class="sideNav-header">
       <h2>Highlight your ingredients from the given form:</h2>
     </div>
-    <h3 class="sideNav-description">Text to be highlighted: <span class="selected-text">{{selectedText}}</span></h3>
+    <h4 class="sideNav-description">Text to be highlighted: <i>{{selectedText}}</i></h4>
     <form [formGroup]="ingredientForm">
       <mat-form-field>
         <input type="text" matInput placeholder="Ingredients" formControlName="ingredientGroup" required
