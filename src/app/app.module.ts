@@ -17,6 +17,9 @@ import { MatInputModule } from '@angular/material/input';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { HttpRequestInterceptor } from './interceptors';
 import { HttpMockRequestInterceptor } from './interceptor.mock';
+import { environment } from '../environments/environment';
+
+export const isMock = environment.mock;
 
 @NgModule({
   declarations: [
