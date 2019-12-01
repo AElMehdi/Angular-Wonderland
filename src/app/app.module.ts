@@ -14,7 +14,7 @@ import { TextSelectionComponent } from './text-highlighting/components/parent/te
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatInputModule } from '@angular/material/input';
-import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { HttpRequestInterceptor } from './interceptors';
 import { HttpMockRequestInterceptor } from './interceptor.mock';
 import { environment } from '../environments/environment';
@@ -31,6 +31,7 @@ export const isMock = environment.mock;
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule,
     MatSidenavModule,
     MatFormFieldModule,
     MatSelectModule,

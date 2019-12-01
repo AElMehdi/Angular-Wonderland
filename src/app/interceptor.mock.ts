@@ -1,12 +1,12 @@
 import { Injectable, Injector } from '@angular/core';
 import { HttpEvent, HttpHandler, HttpInterceptor, HttpRequest, HttpResponse } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
-import * as users from './users.json';
+import * as players from './players.json';
 
 const urls = [
   {
-    url: 'https://jsonplaceholder.typicode.com/users',
-    json: users
+    url: 'localhost:8080/api/fake/players',
+    json: players
   }
 ];
 

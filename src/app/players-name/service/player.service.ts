@@ -1,6 +1,7 @@
 import {Injectable} from '@angular/core';
 import {Player} from '../shared/player.model';
 import {Observable, of} from 'rxjs';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -32,10 +33,11 @@ export class PlayerService {
       team: 'Majd'
     }];
 
-  constructor() {
+  constructor(private http: HttpClient) {
   }
 
   getPlayers(): Observable<Player[]> {
-    return of(this.PLAYERS);
+    // return of(this.PLAYERS);
+    return this.http.get<Player[]>('localhost:8080/api/fake/players');
   }
 }
