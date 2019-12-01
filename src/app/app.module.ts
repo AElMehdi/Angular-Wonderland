@@ -15,9 +15,9 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatInputModule } from '@angular/material/input';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
-import { HttpRequestInterceptor } from './interceptors';
-import { HttpMockRequestInterceptor } from './interceptor.mock';
 import { environment } from '../environments/environment';
+import { HttpMockRequestInterceptor } from './interceptor/interceptor.mock';
+import { HttpRequestInterceptor } from './interceptor/interceptors';
 
 export const isMock = environment.mock;
 
