@@ -18,6 +18,7 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { environment } from '../environments/environment';
 import { HttpMockRequestInterceptor } from './interceptor/interceptor.mock';
 import { HttpRequestInterceptor } from './interceptor/interceptors';
+import { OpenCloseComponent } from './open-close/open-close.component';
 
 export const isMock = environment.mock;
 
@@ -27,6 +28,7 @@ export const isMock = environment.mock;
     PlayersNameComponent,
     TextSelectionComponent,
     TextSelectionDirective,
+    OpenCloseComponent,
   ],
   imports: [
     BrowserModule,
