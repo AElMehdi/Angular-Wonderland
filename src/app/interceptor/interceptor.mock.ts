@@ -16,6 +16,8 @@ export class HttpMockRequestInterceptor implements HttpInterceptor {
   }
 
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
+    console.log('Any url' + request.url);
+
     for (const element of urls) {
       if (request.url === element.url) {
         console.log('Loaded from json : ' + request.url);
