@@ -20,6 +20,9 @@ export class HttpMockRequestInterceptor implements HttpInterceptor {
       if (request.url === element.url) {
         console.log('Loaded from json : ' + request.url);
         return of(new HttpResponse({status: 200, body: ((element.json) as any).default}));
+      } else {
+        console.log('The url : ' + request.url);
+        console.log('The body : ' + request.body);
       }
     }
     console.log('Loaded from http call :' + request.url);
