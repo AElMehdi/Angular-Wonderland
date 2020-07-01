@@ -19,6 +19,7 @@ import { environment } from '../environments/environment';
 import { HttpMockRequestInterceptor } from './interceptor/interceptor.mock';
 import { HttpRequestInterceptor } from './interceptor/interceptors';
 import { OpenCloseComponent } from './open-close/open-close.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 export const isMock = environment.mock;
 
@@ -29,6 +30,7 @@ export const isMock = environment.mock;
     TextSelectionComponent,
     TextSelectionDirective,
     OpenCloseComponent,
+    DashboardComponent,
   ],
   imports: [
     BrowserModule,
