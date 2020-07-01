@@ -20,6 +20,7 @@ import { HttpMockRequestInterceptor } from './interceptor/interceptor.mock';
 import { HttpRequestInterceptor } from './interceptor/interceptors';
 import { OpenCloseComponent } from './open-close/open-close.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { MatTabsModule } from '@angular/material/tabs';
 
 export const isMock = environment.mock;
 
@@ -43,7 +44,8 @@ export const isMock = environment.mock;
     MatButtonModule,
     ReactiveFormsModule,
     MatAutocompleteModule,
-    MatInputModule
+    MatInputModule,
+    MatTabsModule
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,
