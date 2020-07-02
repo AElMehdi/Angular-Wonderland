@@ -1,8 +1,9 @@
 header {
   display: flex;
-  background-color: white;
+  background-color: #242e42;
   height: 70px;
   margin-bottom: 20px;
+  color: white;
 }
 
 .logo-image {
@@ -22,18 +23,46 @@ header {
 }
 
 .player-profile {
-  background-color: white;
+  display: flex;
+  justify-content: space-between;
   min-height: 200px;
   margin-bottom: 10px;
+}
+
+.player-profile ul {
+  color: #1E1F26;
+  list-style: none;
+  padding: 35px 65px 0 65px;
+}
+
+.player-profile li {
+  margin-top: 5px;
+}
+
+.player-profile span {
+  color: black;
+  font-weight: bold;
+  margin-right: 50px;
+}
+
+.personal-profile {
+  background-color: white;
+  box-shadow:  0 0 10px -2px rgba(0, 0, 0, 0.075);
+}
+
+.technical-profile {
+  background-color: white;
+  box-shadow:  0 0 10px -2px rgba(0, 0, 0, 0.075);
 }
 
 .stats {
   background-color: white;
   height: 400px;
+  box-shadow:  0 0 10px -2px rgba(0, 0, 0, 0.075);
 }
 
 footer {
-  background-color: darkslategrey;
+  background-color: #1E1F26;
   position: absolute;
   bottom: 0;
   width: 100%;
