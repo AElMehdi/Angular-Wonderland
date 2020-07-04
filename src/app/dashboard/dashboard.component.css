@@ -43,6 +43,9 @@ header {
   color: black;
   font-weight: bold;
   margin-right: 50px;
+  display: inline-block;
+  width: 120px;
+  text-align: left;
 }
 
 .personal-profile {
