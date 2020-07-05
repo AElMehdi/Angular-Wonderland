@@ -21,6 +21,7 @@ import { HttpRequestInterceptor } from './interceptor/interceptors';
 import { OpenCloseComponent } from './open-close/open-close.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { MatTabsModule } from '@angular/material/tabs';
+import { ScoredAgainstStatComponent } from './scored-against-stat/scored-against-stat.component';
 
 export const isMock = environment.mock;
 
@@ -32,6 +33,7 @@ export const isMock = environment.mock;
     TextSelectionDirective,
     OpenCloseComponent,
     DashboardComponent,
+    ScoredAgainstStatComponent,
   ],
   imports: [
     BrowserModule,
