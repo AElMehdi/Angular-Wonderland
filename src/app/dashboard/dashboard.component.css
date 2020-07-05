@@ -16,17 +16,23 @@ header {
   vertical-align: middle;
 }
 
+/* Main section */
 .main {
-  padding: 10px;
+  display: flex;
+  flex-direction: column;
   width: 90%;
   margin: auto;
 }
 
 .player-profile {
   display: flex;
-  justify-content: center;
-  min-height: 200px;
-  margin-bottom: 10px;
+  flex-direction: column;
+}
+
+.player-profile_content {
+  display: flex;
+  flex-direction: row;
+  margin: 20px 0 20px;
 }
 
 .player-profile ul {
@@ -51,18 +57,25 @@ header {
 .personal-profile {
   margin-right: 70px;
   background-color: white;
-  box-shadow:  0 0 10px -2px rgba(0, 0, 0, 0.075);
+  box-shadow: 0 0 10px -2px rgba(0, 0, 0, 0.075);
 }
 
 .technical-profile {
   background-color: white;
-  box-shadow:  0 0 10px -2px rgba(0, 0, 0, 0.075);
+  box-shadow: 0 0 10px -2px rgba(0, 0, 0, 0.075);
 }
 
+/* Stats section */
 .stats {
+  display: flex;
+  flex-direction: column;
+}
+
+.stats_content {
   background-color: white;
   height: 400px;
-  box-shadow:  0 0 10px -2px rgba(0, 0, 0, 0.075);
+  box-shadow: 0 0 10px -2px rgba(0, 0, 0, 0.075);
+  margin: 20px 0 20px;
 }
 
 footer {
