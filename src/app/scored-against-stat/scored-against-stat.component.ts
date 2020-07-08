@@ -39,20 +39,22 @@ export class ScoredAgainstStatComponent implements OnInit {
       .sortSubgroups(d3.descending)
       (matrix);
 
+
 // add the groups on the outer part of the circle
+    this.svg.selectAll('g.group')
+      .data(res)
+      .enter().append('svg:g')
+      .attr('class', d => 'group ' + names[d.index]);
+
     this.svg
       .datum(res)
       .append('g')
       .selectAll('g')
-      .data(function (d) {
-        return d.groups;
-      })
+      .data(d => d.groups)
       .enter()
       .append('g')
       .append('path')
-      .style('fill', function (d, i) {
-        return colors[i];
-      })
+      .style('fill', (d, i) => colors[i])
       .style('stroke', 'black')
       .attr('d', d3.arc()
         .innerRadius(200)
@@ -64,17 +66,13 @@ export class ScoredAgainstStatComponent implements OnInit {
       .datum(res)
       .append('g')
       .selectAll('path')
-      .data(function (d) {
-        return d;
-      })
+      .data(d => d)
       .enter()
       .append('path')
       .attr('d', d3.ribbon()
         .radius(200)
       )
-      .style('fill', function (d) {
-        return (colors[d.source.index]);
-      }) // colors depend on the source group. Change to target otherwise.
+      .style('fill', d => (colors[d.source.index])) // colors depend on the source group. Change to target otherwise.
       .style('stroke', 'black');
   }
 }
