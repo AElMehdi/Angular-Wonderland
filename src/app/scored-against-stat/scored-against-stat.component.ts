@@ -87,15 +87,14 @@ export class ScoredAgainstStatComponent implements OnInit {
       .data(res.groups)
       .enter()
       .append('text')
-      .attr('x', 6)
+      // .attr('x', 0)
       .attr('dy', 15)
       .append('textPath')
       .style('fill', (d, i) => colors[i])
-      .style('stroke', 'black')
       .attr('xlink:href', (d, i) => '#group-' + i)
       .style('text-anchor', 'middle') //place the text halfway on the arc
       .attr('startOffset', '80%')
-      .text((d, i) => textLabel(i));
+      .text((d, i) => textLabel(i + 1));
 
     // this.svg
     //   .append('text')
