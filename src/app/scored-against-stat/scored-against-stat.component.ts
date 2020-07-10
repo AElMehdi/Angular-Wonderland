@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import * as d3 from 'd3';
-import { ScaleOrdinal, Chords } from 'd3';
+import { Chords, ScaleOrdinal } from 'd3';
 
 @Component({
   selector: 'app-scored-against-stat',
@@ -121,36 +121,3 @@ export class ScoredAgainstStatComponent implements OnInit {
       .attr('transform', 'translate(300,300)');
   }
 }
-
-// Code snippets examples
-// add the groups on the outer part of the circle
-//     this.svg.selectAll('g.group')
-//       .data(res)
-//       .enter().append('svg:g')
-//       .attr('class', d => 'group ' + names[d.index]);//Append the label names on the outside
-
-// outerArcs.append("text")
-//   .attr("class", "titles")
-//   .attr("dy", function(d,i) { return (d.endAngle > 90*Math.PI/180 & d.startAngle < 270*Math.PI/180 ? 25 : -16); })
-//   .append("textPath")
-//   .attr("startOffset","50%")
-//   .style("text-anchor","middle")
-//   .attr("xlink:href",function(d,i){return "#arc"+i;})
-//   .text(function(d,i){ return Names[i]; });
-
-// Text Path example
-
-//Create an SVG path (based on bl.ocks.org/mbostock/2565344)
-// this.svg.append('path')
-//   .attr('id', 'wavy') //Unique id of the path
-//   .attr('d', 'M 10,90 Q 100,15 200,70 Q 340,140 400,30') //SVG path
-//   .style('fill', 'none')
-//   .style('stroke', '#AAAAAA');
-//
-// //Create an SVG text element and append a textPath element
-// this.svg.append('text')
-//   .append('textPath') //append a textPath to the text element
-//   .attr('xlink:href', '#wavy') //place the ID of the path here
-//   .style('text-anchor', 'middle') //place the text halfway on the arc
-//   .attr('startOffset', '50%')
-//   .text('Yay, my text is on a wavy path');
