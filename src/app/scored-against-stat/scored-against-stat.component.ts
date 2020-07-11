@@ -11,7 +11,7 @@ import { Chords, ScaleOrdinal } from 'd3';
 export class ScoredAgainstStatComponent implements OnInit {
   private svg: any;
   // 4 groups, so create a vector of 4 colors
-  private colors = ['#440154ff', '#31668dff', '#37b578ff', '#fde725ff'];
+  private colors = ['#fff', '#31668dff', '#fff', '#fde725ff', '#fff'];
   private names = ['#440154ff', '#31668dff', '#37b578ff', '#fde725ff'];
 
   constructor() {
@@ -25,8 +25,8 @@ export class ScoredAgainstStatComponent implements OnInit {
     // give this matrix to d3.chord(): it will calculates all the info we need to draw arc and ribbon
     const chordsFromDataMatrix = this.chordsFrom(dataMatrix);
 
-    const textLabel = d3.scaleOrdinal().range(['Black', 'Blonde', 'Brown', 'Red']);
-    this.addLabels(chordsFromDataMatrix, textLabel);
+    const textLabels = d3.scaleOrdinal().range(['empty', 'El phenomeno', 'empty', 'Real Madrid', 'empty']);
+    this.addLabels(chordsFromDataMatrix, textLabels);
     this.addArcsPerCategory(chordsFromDataMatrix);
     this.addLinksBetweenNodes(chordsFromDataMatrix);
   }
@@ -41,10 +41,11 @@ export class ScoredAgainstStatComponent implements OnInit {
       .enter()
       .append('path')
       .attr('d', d3.ribbon()
-        .radius(200)
+          .radius(200)
+        // .startAngle(0.1)
+        // .endAngle(0.11)
       )
-      .style('fill', d => (this.colors[d.source.index])) // colors depend on the source group. Change to target otherwise.
-      .style('stroke', 'black');
+      .style('fill', d => (this.colors[d.source.index])); // colors depend on the source group. Change to target otherwise.
   }
 
   private addArcsPerCategory(chordsFromDataMatrix: Chords) {
@@ -57,18 +58,24 @@ export class ScoredAgainstStatComponent implements OnInit {
       .append('g')
       .append('path')
       .style('fill', (d, i) => this.colors[i])
-      .style('stroke', 'black')
+      // .style('stroke', 'black')
       .attr('d', d3.arc()
         .innerRadius(200)
         .outerRadius(210)
+        // .startAngle(0.1)
+        // .endAngle(1)
       );
   }
 
   private addLabels(chordsFromDataMatrix: Chords, textLabel: ScaleOrdinal<string, unknown>) {
     // Create a path around the arcs
+    const chordGroups = chordsFromDataMatrix.groups;
+
+    console.log('the groups', chordGroups);
+    console.log('the whole object', chordsFromDataMatrix);
     this.svg.append('g')
       .selectAll('path')
-      .data(chordsFromDataMatrix.groups)
+      .data(chordGroups)
       .enter()
       .append('path')
       .attr('id', (d, i) => 'group-' + i)
@@ -103,10 +110,15 @@ export class ScoredAgainstStatComponent implements OnInit {
   private createDataMatrix() {
 // create a matrix
     const matrix = [
-      [0, 5871, 8916, 2868],
-      [1951, 0, 2060, 6171],
-      [8010, 16145, 0, 8045],
-      [1013, 990, 940, 0]
+      [8, 0, 0, 0, 0], // empty
+      [0, 0, 0, 2, 0], // first player
+      [0, 0, 15, 0, 0], // empty
+      [0, 2, 0, 0, 0], // team 1
+      [0, 0, 0, 0, 8], // empty
+      // [0, 5871, 8916, 288],
+      // [1951, 0, 2060, 6171],
+      // [8010, 16145, 0, 8045],
+      // [1013, 990, 940, 0]
     ];
     return matrix;
   }
