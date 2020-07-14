@@ -22,6 +22,7 @@ import { OpenCloseComponent } from './open-close/open-close.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { MatTabsModule } from '@angular/material/tabs';
 import { ScoredAgainstStatComponent } from './scored-against-stat/scored-against-stat.component';
+import { D3BasicNetworkDiagramComponent } from './d3-basic-network-diagram/d3-basic-network-diagram.component';
 
 export const isMock = environment.mock;
 
@@ -34,6 +35,7 @@ export const isMock = environment.mock;
     OpenCloseComponent,
     DashboardComponent,
     ScoredAgainstStatComponent,
+    D3BasicNetworkDiagramComponent,
   ],
   imports: [
     BrowserModule,
