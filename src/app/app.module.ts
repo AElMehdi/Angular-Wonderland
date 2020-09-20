@@ -23,6 +23,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { MatTabsModule } from '@angular/material/tabs';
 import { ScoredAgainstStatComponent } from './scored-against-stat/scored-against-stat.component';
 import { D3BasicNetworkDiagramComponent } from './d3-basic-network-diagram/d3-basic-network-diagram.component';
+import { DialogContentExample, MatDialogComponent } from './mat-dialog/mat-dialog.component';
+import { MatDialogModule } from '@angular/material/dialog';
 
 export const isMock = environment.mock;
 
@@ -36,6 +38,8 @@ export const isMock = environment.mock;
     DashboardComponent,
     ScoredAgainstStatComponent,
     D3BasicNetworkDiagramComponent,
+    MatDialogComponent,
+    DialogContentExample
   ],
   imports: [
     BrowserModule,
@@ -49,8 +53,10 @@ export const isMock = environment.mock;
     ReactiveFormsModule,
     MatAutocompleteModule,
     MatInputModule,
-    MatTabsModule
+    MatTabsModule,
+    MatDialogModule
   ],
+  entryComponents: [DialogContentExample],
   providers: [{
     provide: HTTP_INTERCEPTORS,
     useClass: isMock ? HttpMockRequestInterceptor : HttpRequestInterceptor,
