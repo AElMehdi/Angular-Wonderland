@@ -1,0 +1,51 @@
+
+<mat-card class="card">
+  <form (ngSubmit)="save()" [formGroup]="userForm">
+
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+    <ng-container matColumnDef="position">
+    <th mat-header-cell *matHeaderCellDef> Index </th>
+    <td mat-cell *matCellDef="let element; let i = index"> {{i}} </td>
+    </ng-container>
+
+    <div formArrayName="users">
+      <ng-container matColumnDef="firstname">
+        <th mat-header-cell *matHeaderCellDef> firstname </th>
+        <td mat-cell *matCellDef="let element; let i = index;"  [formGroupName]="i">
+          <mat-form-field appearance="fill">
+            <mat-label>First Name</mat-label>
+            <input formControlName="firstname" matInput placeholder="Ex. Bob">
+          </mat-form-field>
+        </td>
+        </ng-container>
+    </div>
+
+    <ng-container matColumnDef="lastname">
+      <th mat-header-cell *matHeaderCellDef> lastname </th>
+      <td mat-cell *matCellDef="let element"> {{element.lastname}} </td>
+    </ng-container>
+
+
+    <!-- <ng-container matColumnDef="phone">
+    <th mat-header-cell *matHeaderCellDef> Symbol </th>
+    <td mat-cell *matCellDef="let element"> {{element.symbol}} </td>
+    </ng-container> -->
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns; let i = index;"></tr>
+    </table>
+    <button mat-raised-button type="submit" color="primary">Save</button>
+
+  </form>
+
+</mat-card>
+
+<mat-card class="card">
+  <div>
+    <p>Is dirty: {{userForm?.dirty}}</p>
+    <p>Disabled: {{userForm?.disabled}}</p>
+    <p>Is untouched: {{userForm?.untouched}}</p>
+  </div>
+</mat-card>
+
